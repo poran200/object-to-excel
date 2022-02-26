@@ -1,6 +1,7 @@
 package org.data.exproter;
 
 import org.data.exproter.example.Address;
+import org.data.exproter.example.Country;
 import org.data.exproter.example.Employee;
 
 import java.io.IOException;
@@ -17,8 +18,9 @@ public class Main {
         sheetManagerFactory = new SheetManagerFactory(sheetManagerBean);
         List<Employee> employees = new ArrayList<>();
 
-        Address address = new Address(1, "32", "nikonja-2 khilkhat");
-        Employee employee = new Employee("Jalal", 23, address);
+        Address address = new Address(1, "32", "nikonja-2 khilkhat",
+                new Country("10", "bangladesh","ENG","USD"));
+        Employee employee = new Employee(1L,"Jalal", 23, address);
         employees.add(employee);
         sheetManagerFactory.export(employees);
     }
